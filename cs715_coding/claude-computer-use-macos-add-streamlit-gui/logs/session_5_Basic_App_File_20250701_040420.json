@@ -1,0 +1,150 @@
+{
+  "session_id": "5_Basic_App_File_20250701_040420",
+  "start_time": "2025-07-01T04:04:20.052744",
+  "events": [
+    {
+      "timestamp": "2025-07-01T04:04:20.055110",
+      "type": "session_metadata",
+      "data": {
+        "Test_ID": "5",
+        "Cat": "Basic_App_File"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:20.055899",
+      "type": "user_input",
+      "data": {
+        "instruction": "Open Safari to https://www.uni-mannheim.de/dws/ and extract the latest title of News section"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:20.059860",
+      "type": "model_selection",
+      "data": {
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:24.832653",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 2531,
+        "output_tokens": 108,
+        "cost_usd": 0.009213,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:24.833573",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "I'll help you open Safari and navigate to the specified URL to check the News section. Let me break this down into steps:\n\n1. First, let's open Safari\n2. Navigate to the URL\n3. Take a screenshot to analyze the page content"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_012kwzaDRvRP3yfnGmj9AzSf",
+            "name": "bash",
+            "input": {
+              "command": "open -a Safari"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:32.782667",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 2664,
+        "output_tokens": 246,
+        "cost_usd": 0.011682000000000001,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:32.783361",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Now, let's wait a moment for Safari to open and then navigate to the URL:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_013fL4dRP9TjbRdEJNgw9abB",
+            "name": "computer",
+            "input": {
+              "action": "mouse_move",
+              "coordinate": [
+                400,
+                60
+              ]
+            }
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01BA9ijGtQwC2ezyoPZDJXwk",
+            "name": "computer",
+            "input": {
+              "action": "left_click"
+            }
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01M1Y2Bg8yMC64AAyZNki8Fy",
+            "name": "computer",
+            "input": {
+              "action": "type",
+              "text": "https://www.uni-mannheim.de/dws/"
+            }
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01MPa36MeDsSmUuqgyutSMLV",
+            "name": "computer",
+            "input": {
+              "action": "key",
+              "text": "Return"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:32.914290",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_013fL4dRP9TjbRdEJNgw9abB",
+        "output": "Mouse moved successfully to X=400, Y=60"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:33.092975",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01BA9ijGtQwC2ezyoPZDJXwk",
+        "output": "Left click performed."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:34.721805",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01M1Y2Bg8yMC64AAyZNki8Fy",
+        "output": "Typed text: https://www.uni-mannheim.de/dws/"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:04:34.893835",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01MPa36MeDsSmUuqgyutSMLV",
+        "output": "Key combination 'Return' pressed."
+      }
+    }
+  ]
+}

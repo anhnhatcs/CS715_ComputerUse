@@ -1,0 +1,837 @@
+{
+  "session_id": "5_Basic_App_File_20250701_040940",
+  "start_time": "2025-07-01T04:09:40.860559",
+  "events": [
+    {
+      "timestamp": "2025-07-01T04:09:40.862758",
+      "type": "session_metadata",
+      "data": {
+        "Test_ID": "5",
+        "Cat": "Basic_App_File"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:09:40.863219",
+      "type": "user_input",
+      "data": {
+        "instruction": "Open a new  Safari tab to https://www.uni-mannheim.de/dws/ and extract the latest news title. If you don't find the News section, slowly scroll down the page"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:09:40.864243",
+      "type": "model_selection",
+      "data": {
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:09:46.125288",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 2548,
+        "output_tokens": 122,
+        "cost_usd": 0.009474,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:09:46.125890",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "I'll help you access the website and find the latest news title. Let me break this down into steps:\n\n1. First, I'll open Safari\n2. Then navigate to the URL\n3. Take a screenshot to see the content\n4. Scroll down if needed to find the News section\n\nLet's start:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01CgzYazPkd4dtnUojyXFshF",
+            "name": "bash",
+            "input": {
+              "command": "open -a Safari"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:09:53.818329",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 2695,
+        "output_tokens": 67,
+        "cost_usd": 0.00909,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:09:53.819039",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Now, let's move to the address bar and enter the URL:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01HxShtU7BbbmbY19rQ4TFJE",
+            "name": "computer",
+            "input": {
+              "action": "screenshot"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:09:54.359790",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01HxShtU7BbbmbY19rQ4TFJE",
+        "image_path": "screenshots/screenshot_toolu_01HxShtU7BbbmbY19rQ4TFJE.png"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:00.022818",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 3823,
+        "output_tokens": 89,
+        "cost_usd": 0.012804,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:00.023671",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Let me click on the address bar and type the URL:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01XSUwAFAzm8wVs4bRh1PxmL",
+            "name": "computer",
+            "input": {
+              "action": "mouse_move",
+              "coordinate": [
+                320,
+                50
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:00.183211",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01XSUwAFAzm8wVs4bRh1PxmL",
+        "output": "Mouse moved successfully to X=320, Y=50"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:05.887535",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 3934,
+        "output_tokens": 54,
+        "cost_usd": 0.012612,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:05.888112",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01BeEnwpUvnwViraQGeTrShD",
+            "name": "computer",
+            "input": {
+              "action": "left_click"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:06.020422",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01BeEnwpUvnwViraQGeTrShD",
+        "output": "Left click performed."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:10.507450",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 4002,
+        "output_tokens": 82,
+        "cost_usd": 0.013236,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:10.508427",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01A5ytaBX57RYcVRFsdts9Gr",
+            "name": "computer",
+            "input": {
+              "action": "type",
+              "text": "https://www.uni-mannheim.de/dws/"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:11.964316",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01A5ytaBX57RYcVRFsdts9Gr",
+        "output": "Typed text: https://www.uni-mannheim.de/dws/"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:15.516094",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 4113,
+        "output_tokens": 69,
+        "cost_usd": 0.013374,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:15.517419",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01QJaJvw9S5tJYAdRAiVLvjh",
+            "name": "computer",
+            "input": {
+              "action": "key",
+              "text": "Return"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:15.654327",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01QJaJvw9S5tJYAdRAiVLvjh",
+        "output": "Key combination 'Return' pressed."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:19.817192",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 4200,
+        "output_tokens": 67,
+        "cost_usd": 0.013605,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:19.817699",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Now let's wait for the page to load and take a screenshot:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01Cvy5iY4hc73AC2b7rTg98g",
+            "name": "computer",
+            "input": {
+              "action": "screenshot"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:20.356859",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01Cvy5iY4hc73AC2b7rTg98g",
+        "image_path": "screenshots/screenshot_toolu_01Cvy5iY4hc73AC2b7rTg98g.png"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:25.551603",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 5328,
+        "output_tokens": 100,
+        "cost_usd": 0.017484000000000003,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:25.553983",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Let me wait a moment for the page to load and then take another screenshot. I'll also press the Page Down key to scroll down:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_015uDzNtHAoA5e5WzTkZt8Sv",
+            "name": "computer",
+            "input": {
+              "action": "key",
+              "text": "Page_Down"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:25.663010",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_015uDzNtHAoA5e5WzTkZt8Sv",
+        "output": "Key combination 'Page_Down' pressed."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:29.724013",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 5448,
+        "output_tokens": 52,
+        "cost_usd": 0.017124,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:29.725585",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_011dB5pET3mXpFm6Fjz54tSM",
+            "name": "computer",
+            "input": {
+              "action": "screenshot"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:30.206925",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_011dB5pET3mXpFm6Fjz54tSM",
+        "image_path": "screenshots/screenshot_toolu_011dB5pET3mXpFm6Fjz54tSM.png"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:35.485604",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 6561,
+        "output_tokens": 101,
+        "cost_usd": 0.021197999999999998,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:35.487173",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "I see that the page hasn't fully loaded yet. Let me try entering the URL again and waiting a bit longer:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_0137f9MUhMeFnY7eNqVzEhT9",
+            "name": "computer",
+            "input": {
+              "action": "mouse_move",
+              "coordinate": [
+                320,
+                50
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:35.618710",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_0137f9MUhMeFnY7eNqVzEhT9",
+        "output": "Mouse moved successfully to X=320, Y=50"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:41.691735",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 6684,
+        "output_tokens": 54,
+        "cost_usd": 0.020862,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:41.692957",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_012uWo3q8YsTm89UXzhMRrr1",
+            "name": "computer",
+            "input": {
+              "action": "left_click"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:41.812862",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_012uWo3q8YsTm89UXzhMRrr1",
+        "output": "Left click performed."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:47.974662",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 6752,
+        "output_tokens": 82,
+        "cost_usd": 0.021485999999999998,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:47.975533",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01AoKPm5ayiD8M2xyGcRZrBF",
+            "name": "computer",
+            "input": {
+              "action": "type",
+              "text": "https://www.uni-mannheim.de/dws/"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:49.425563",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01AoKPm5ayiD8M2xyGcRZrBF",
+        "output": "Typed text: https://www.uni-mannheim.de/dws/"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:53.710310",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 6863,
+        "output_tokens": 69,
+        "cost_usd": 0.021624000000000004,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:53.711886",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01HTzoSG5WKCMqMur5AJMUHh",
+            "name": "computer",
+            "input": {
+              "action": "key",
+              "text": "Return"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:53.930627",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01HTzoSG5WKCMqMur5AJMUHh",
+        "output": "Key combination 'Return' pressed."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:58.838256",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 6950,
+        "output_tokens": 63,
+        "cost_usd": 0.021795000000000002,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:58.842575",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Let's wait a moment and take another screenshot:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01CkqPHqWoAb2wmxXq9fxkoi",
+            "name": "computer",
+            "input": {
+              "action": "screenshot"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:10:59.500856",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01CkqPHqWoAb2wmxXq9fxkoi",
+        "image_path": "screenshots/screenshot_toolu_01CkqPHqWoAb2wmxXq9fxkoi.png"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:06.826690",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 8074,
+        "output_tokens": 88,
+        "cost_usd": 0.025542,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:06.831126",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "The page is loading. Let me scroll down to look for the news section:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_0181bdvvoosc4TT3NA1jyVoJ",
+            "name": "computer",
+            "input": {
+              "action": "key",
+              "text": "Page_Down"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:06.942831",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_0181bdvvoosc4TT3NA1jyVoJ",
+        "output": "Key combination 'Page_Down' pressed."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:12.974447",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 8182,
+        "output_tokens": 52,
+        "cost_usd": 0.025326,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:12.981070",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_012DSco5377QhR7r9J3vFfuG",
+            "name": "computer",
+            "input": {
+              "action": "screenshot"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:13.643726",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_012DSco5377QhR7r9J3vFfuG",
+        "image_path": "screenshots/screenshot_toolu_012DSco5377QhR7r9J3vFfuG.png"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:20.652448",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 9295,
+        "output_tokens": 78,
+        "cost_usd": 0.029055,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:20.656791",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Let me continue scrolling:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01LUtQzGKmadbetdxaFxvuEy",
+            "name": "computer",
+            "input": {
+              "action": "key",
+              "text": "Page_Down"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:20.771189",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01LUtQzGKmadbetdxaFxvuEy",
+        "output": "Key combination 'Page_Down' pressed."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:25.366496",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 9393,
+        "output_tokens": 52,
+        "cost_usd": 0.028959000000000002,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:25.374433",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01Ektg5zrDrxnHZPqvz3pJTC",
+            "name": "computer",
+            "input": {
+              "action": "screenshot"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:26.027307",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01Ektg5zrDrxnHZPqvz3pJTC",
+        "image_path": "screenshots/screenshot_toolu_01Ektg5zrDrxnHZPqvz3pJTC.png"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:32.016372",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 10506,
+        "output_tokens": 99,
+        "cost_usd": 0.033003000000000005,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:32.024622",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "I notice that the page might be having trouble loading. Let me try to use curl to fetch the content first to see if there are any issues:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01Ci5r12rcAwB3p5GPhtVSwu",
+            "name": "bash",
+            "input": {
+              "command": "curl -L https://www.uni-mannheim.de/dws/"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:32.448577",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01Ci5r12rcAwB3p5GPhtVSwu",
+        "output": "<!DOCTYPE html>\n<html class=\"no-js\" lang=\"en\">\n<head>\n\n<meta charset=\"utf-8\">\n\n\n\n\n<title>Data and Web Science Group | Universit\u00e4t Mannheim</title>\n<meta name=\"generator\" content=\"TYPO3 CMS\">\n<meta name=\"twitter:card\" content=\"summary\">\n<meta name=\"revisit-after\" content=\"10 days\"><link rel=\"stylesheet\" href=\"/typo3temp/assets/css/910e5c7c99e88a767b79802168e75ba6.1750941849.css\" media=\"all\"><link rel=\"stylesheet\" href=\"/_assets/f038457a108ded7ca0b077b63bfae195/Css/Main.min.1749583070.css\" media=\"all\"><link rel=\"stylesheet\" href=\"/_assets/57a23904394be66b23e1207477f1abce/Icons/sprite.1750941689.css\" media=\"all\"><link rel=\"stylesheet\" href=\"/_assets/57a23904394be66b23e1207477f1abce/Vendor/maplibre-gl/css/mapbox-gl.1747232557.css\" media=\"all\"><link rel=\"stylesheet\" href=\"/_assets/57a23904394be66b23e1207477f1abce/Css/app_new.1750941650.css\" media=\"all\"><link rel=\"stylesheet\" href=\"/_assets/57a23904394be66b23e1207477f1abce/Css/print.1750941658.css\" media=\"print\"><link rel=\"stylesheet\" href=\"/_assets/57a23904394be66b23e1207477f1abce/Css/wim.1750941661.css\" media=\"all\"><meta property=\"og:image\" content=\"https://www.uni-mannheim.de/media/_processed_/e/e/csm_DSC_4401_1083093063.jpg\"><meta property=\"og:url\" content=\"https://www.uni-mannheim.de/dws/\"><meta property=\"og:site_name\" content=\"\"><meta property=\"og:title\" content=\"Data and Web Science Group\"><meta property=\"og:description\" content=\"\"><meta property=\"og:type\" content=\"website\"><meta name=\"thumbnail\" content=\"https://www.uni-mannheim.de/media/_processed_/e/e/csm_DSC_4401_cb192edd8b.jpg\">      <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">\n      <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0, minimum-scale=1.0\"><link rel=\"icon\" type=\"image/x-icon\" href=\"/typo3conf/ext/uma_site/Resources/Public/Images/Favicons/favicon.ico\"><link rel=\"icon\" type=\"image/png\" sizes=\"16x16\" href=\"/typo3conf/ext/uma_site/Resources/Public/Images/Favicons/favicon-16x16.png\"><link rel=\"icon\" type=\"image/png\" sizes=\"32x32\" href=\"/typo3conf/ext/uma_site/Resources/Public/Images/Favicons/favicon-32x32.png\"><link rel=\"apple-touch-icon\" sizes=\"180x180\" href=\"/typo3conf/ext/uma_site/Resources/Public/Images/Favicons/apple-touch-icon.png?v=2\"><link rel=\"alternate\" type=\"application/rss+xml\" title=\"Aktuelle News der Universit\u00e4t Mannheim\" href=\"https://www.uni-mannheim.de/newsroom/news/rss.xml\"><link rel=\"alternate\" type=\"application/rss+xml\" title=\"Aktuelle Events der Universit\u00e4t Mannheim\" href=\"https://www.uni-mannheim.de/newsroom/events/rss.xml\">\n<script>\n  var _paq = _paq || [];\n  var siteIds = [92,143];\n  _paq.push(['requireConsent']);\n  _paq.push(['trackPageView']);\n  _paq.push(['enableLinkTracking']);\n</script>\n\n\n</head>\n<body class=\"uma-main-site new-layout\" id=\"page-7451\">\n\n\n<div class=\"app outer-wrap\">\n\t<div class=\"skip-links\">\n\t\t<a href=\"#main-navigation\" class=\"skip-link skip-link-autofocus\">\n\t\t\tSkip to main navigation\n\t\t</a>\n\t\t<a href=\"#page-content\" class=\"skip-link skip-link-autofocus-heading\">\n\t\t\tSkip to page content\n\t\t</a>\n\t\t<a href=\"#page-footer\" class=\"skip-link skip-link-autofocus\">\n\t\t\tSkip to footer\n\t\t</a>\n\t</div>\n\t\n\t<div class=\"inner-wrap\">\n\t\t<div class=\"site-container \">\n\t\t\t\n\n<header class=\"uma-header\">\n\n\t<div class=\"main-menu max-width-1440\">\n\t\t<div class=\"row align-bottom expanded align-center uma-header-elements\">\n\t\t\t\n\t\t\t<div class=\"column small-8 medium-4\">\n\t\t\t\t<div class=\"uma-header-left\">\n\t\t\t\t\t<a href=\"https://www.wim.uni-mannheim.de/en/\" class=\"logo-link\"><img src=\"/typo3conf/ext/uma_site/Resources/Public/Images/Icons/logo-fakultaet-wim-en.svg\" width=\"462\" height=\"157\" alt=\"Logo of the University of Mannheim\"></a>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t\t<div class=\"column small-8 medium-12 uma-header-right\">\n\t\t\t\t\n\t\t\t\t<div class=\"metanav-wrapper\">\n\t\t\t\t\t<div class=\"metanav-container row align-middle show-for-large\">\n\t\t\t\t\t\t\n\t\t\t\t\t\t<div class=\"language-selector\">\n\t\t\t\t\t\t\t\n\t\t\t\t\t \t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t\n\t\t\t\t\t\n\n\n\n\n    \n        \n                \n            \n    \n    \n\n    \n    \n\n    \n    \n        \n    \n\n\t\n<nav id=\"main-navigation\" class=\"globalnav-container row expanded align-right show-for-large\" data-root-page=\"7451\"><ul class=\"level1\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/home/\">Home</a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/\">Research</a><ul class=\"level2 vertical menu accordion-menu\" data-accordion-menu data-submenu-toggle=\"true\"><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/\"><span>Focus Groups</span></a><ul class=\"level3 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/web-based-systems-prof-bizer/\"><span>Web-based Systems (Prof. Bizer)</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/data-analytics-prof-gemulla/\"><span>Data Analytics (Prof. Gemulla)</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/web-data-mining-prof-paulheim/\"><span>Web Data Mining (Prof. Paulheim)</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/natural-language-processing-and-information-retrieval-prof-ponzetto/\"><span>Natural Language Processing and Information Retrieval (Prof. Ponzetto)</span></a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/artificial-intelligence-prof-stuckenschmidt/\"><span>Artificial Intelligence (Prof. Stuckenschmidt)</span></a><ul class=\"level4 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/artificial-intelligence-prof-stuckenschmidt/master-thesis-topics-in-artificial-intelligence/\"><span>Master Thesis Topics in Artificial Intelligence</span></a></li></ul></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/process-analytics-prof-van-der-aa/\"><span>Process Analytics (Prof. Van der Aa)</span></a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/computer-vision-machine-learning-prof-dr-ing-margret-keuper/\"><span>Computer Vision & Machine Learning (Prof. Dr.-Ing. Margret Keuper)</span></a><ul class=\"level4 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/computer-vision-machine-learning-prof-dr-ing-margret-keuper/teaching-cvml/\"><span>Teaching CVML</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/computer-vision-machine-learning-prof-dr-ing-margret-keuper/people-cvml/\"><span>People CVML</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/computer-vision-machine-learning-prof-dr-ing-margret-keuper/publications/\"><span>Publications</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/focus-groups/computer-vision-machine-learning-prof-dr-ing-margret-keuper/projects/\"><span>Projects</span></a></li></ul></li></ul></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/\"><span>Projects</span></a><ul class=\"level3 vertical menu nested\"><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/\"><span>Machine Learning</span></a><ul class=\"level4 vertical menu nested\"><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/trackopt/\"><span>TrackOpt</span></a><ul class=\"level5 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/trackopt/trackopt-projectpage/\"><span>TrackOpt \u2013 ProjectPage</span></a></li></ul></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/learning-to-sense/\"><span>Learning to Sense</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/climatevisions/\"><span>ClimateVisions</span></a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/v3m/\"><span>Reliability of Vision and Multi-Modal Models</span></a><ul class=\"level5 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/v3m/v3m-neurips2025/\"><span>NeurIPS2025</span></a></li></ul></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/cospgd/\"><span>CosPGD</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/machine-learning/context-matters/\"><span>Context Matters</span></a></li></ul></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/current-projects/\"><span>Current Projects</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/projects/completed-projects/\"><span>Completed Projects</span></a></li></ul></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/research/resources/\"><span>Resources</span></a></li></ul></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/\">People</a><ul class=\"level2 vertical menu accordion-menu\" data-accordion-menu data-submenu-toggle=\"true\"><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/\"><span>Professors</span></a><ul class=\"level3 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/prof-dr-christian-bizer/\"><span>Prof. Dr. Christian Bizer</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/prof-dr-rainer-gemulla/\"><span>Prof. Dr. Rainer Gemulla</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/prof-dr-ing-margret-keuper/\"><span>Prof. Dr.-Ing. Margret Keuper</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/prof-dr-heiko-paulheim/\"><span>Prof. Dr. Heiko Paulheim</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/prof-dr-simone-paolo-ponzetto/\"><span>Prof. Dr. Simone Paolo Ponzetto</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/prof-dr-heiner-stuckenschmidt/\"><span>Prof. Dr. Heiner Stuckenschmidt</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/prof-dr-philipp-kellmeyer/\"><span>Prof. Dr. Philipp Kellmeyer</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/professors/dr-sven-hertling/\"><span>Dr. Sven Hertling</span></a></li></ul></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/\"><span>Researchers</span></a><ul class=\"level3 vertical menu nested\"><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/postdoctoral-research-fellows/\"><span>Postdoctoral Research Fellows</span></a><ul class=\"level4 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/postdoctoral-research-fellows/dr-ralph-peeters/\"><span>Dr. Ralph Peeters</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/postdoctoral-research-fellows/daniel-ruffinelli/\"><span>Daniel Ruffinelli</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/postdoctoral-research-fellows/dr-ines-rehbein/\"><span>Dr. Ines Rehbein</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/postdoctoral-research-fellows/dr-christian-meilicke/\"><span>Dr. Christian Meilicke</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/postdoctoral-research-fellows/rita-torres-de-sousa/\"><span>Rita Torres de Sousa</span></a></li></ul></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/\"><span>PhD Students</span></a><ul class=\"level4 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/yuxuan-zhou/\"><span>Yuxuan Zhou</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/tejaswini-medi/\"><span>Tejaswini Medi</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/aaron-steiner/\"><span>Aaron Steiner</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/daniel-kerger/\"><span>Daniel Kerger</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/shashank/\"><span>Shashank Agnihotri</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/katharina-prasse/\"><span>Katharina Prasse</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/mishal-fatima/\"><span>Mishal Fatima</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/keyvan-amiri-elyasi/\"><span>Keyvan Amiri Elyasi</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/darshit-pandya/\"><span>Darshit Pandya</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/alexander-bubak/\"><span>Alexander Bubak</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/patrick-betz/\"><span>Patrick Betz</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/alexander-brinkmann/\"><span>Alexander Brinkmann</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/lea-cohausz/\"><span>Lea Cohausz</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/andreea-iana/\"><span>Andreea Iana</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/jakob-kappenberger/\"><span>Jakob Kappenberger</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/christopher-klamm/\"><span>Christopher Klamm</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/julie-naegelen/\"><span>Julie Naegelen</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/keti-korini/\"><span>Keti Korini</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/franz-krause/\"><span>Franz Krause</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/steffen-jung/\"><span>Steffen Jung</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/alexander-kraus/\"><span>Alexander Kraus</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/ricarda-link/\"><span>Ricarda Link</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/ines-reinig/\"><span>Ines Reinig</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/sotaro-takeshita/\"><span>Sotaro Takeshita</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/simon-forbat/\"><span>Simon Forbat</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/phd-students/julia-gastinger/\"><span>Julia Gastinger</span></a></li></ul></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/affiliated-phd-students/\"><span>Affiliated PhD Students</span></a><ul class=\"level4 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/researchers/affiliated-phd-students/patrick-mueller/\"><span>Patrick M\u00fcller</span></a></li></ul></li></ul></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/administration/\"><span>Administration</span></a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/\"><span>Alumni</span></a><ul class=\"level3 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-federico-nanni/\"><span>Dr. Federico Nanni</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-melisachew-wudage-chekol/\"><span>Dr. Melisachew Wudage Chekol</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-ioana-hulpus/\"><span>Dr. Ioana Hulpus</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/samuel-broscheit/\"><span>Samuel Broscheit</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-chia-chien-hung/\"><span>Dr. Chia-Chien Hung</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-robert-litschko/\"><span>Dr. Robert Litschko</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/adrian-rebmann/\"><span>Adrian Rebmann</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-michael-schlechtinger/\"><span>Dr. Michael Schlechtinger</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/fabian-david-schmidt/\"><span>Fabian David Schmidt</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-adrian-kochsiek/\"><span>Dr. Adrian Kochsiek</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-nicolas-heist/\"><span>Dr. Nicolas Heist</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/prof-dr-paul-swoboda/\"><span>Prof. Dr. Paul Swoboda</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-pedro-ortiz-suarez/\"><span>Dr. Pedro Ortiz Suarez</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-sarah-alturki/\"><span>Dr. Sarah Alturki</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-jovita-lukasik/\"><span>Dr. Jovita Lukasik</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-amirhossein-kardoost/\"><span>Dr. Amirhossein Kardoost</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/kiril-gashteovski/\"><span>Kiril Gashteovski</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/prof-dr-goran-glavas/\"><span>Prof. Dr. Goran Glava\u0161</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-anna-primpeli/\"><span>Dr. Anna Primpeli</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-anne-lauscher/\"><span>Dr. Anne Lauscher</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-taha-alhersh/\"><span>Dr. Taha Alhersh</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-jakob-huber/\"><span>Dr. Jakob Huber</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-jonathan-kobbe/\"><span>Dr. Jonathan Kobbe</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-timo-sztyler/\"><span>Dr. Timo Sztyler</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-dmitry-ustalov/\"><span>Dr. Dmitry Ustalov</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-oliver-lehmberg/\"><span>Dr. Oliver Lehmberg</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-yaser-oulabi/\"><span>Dr. Yaser Oulabi</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/alexander-diete/\"><span>Alexander Diete</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/people/alumni/dr-kilian-theil/\"><span>Dr. Kilian Theil</span></a></li></ul></li></ul></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/career/\">Career</a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/\">Teaching</a><ul class=\"level2 vertical menu accordion-menu\" data-accordion-menu data-submenu-toggle=\"true\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/large-computations/\"><span>Large Computations</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/lecture-videos/\"><span>Lecture Videos</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/thesis-guidelines/\"><span>Thesis Guidelines</span></a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/\"><span>Course Details</span></a><ul class=\"level3 vertical menu nested\"><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/\"><span>Courses for Master Candidates</span></a><ul class=\"level4 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-500-data-mining/\"><span>IE 500 Data Mining</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-560-decision-support/\"><span>IE 560 Decision Support</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ds-203-responsible-ai/\"><span>DS 203: Responsible AI</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-650-knowledge-graphs/\"><span>IE 650 Knowledge Graphs</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-661-text-analytics/\"><span>IE 661 Text Analytics</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-663-information-retrieval-and-web-search/\"><span>IE 663 Information Retrieval and Web Search</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-670-web-data-integration/\"><span>IE 670 Web Data Integration</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-671-web-mining/\"><span>IE 671 Web Mining</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-675b-machine-learning/\"><span>IE 675b Machine Learning</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-678-deep-learning/\"><span>IE 678 Deep Learning</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-686-large-language-models-and-agents/\"><span>IE 686 Large Language Models and Agents</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-695-reinforcement-learning/\"><span>IE 695 Reinforcement Learning</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-696-advanced-methods-in-text-analytics/\"><span>IE 696 Advanced Methods in Text Analytics</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-689-relational-learning/\"><span>IE 689 Relational Learning</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-692-advanced-process-mining/\"><span>IE 692 Advanced Process Mining</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/ie-694-industrial-applications-of-artificial-intelligence/\"><span>IE 694 Industrial Applications of Artificial Intelligence</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-460-databases-for-data-scientists/\"><span>CS 460 Databases for Data Scientists</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-560-large-scale-data-management/\"><span>CS 560 Large-Scale Data Management</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-646-higher-level-computer-vision/\"><span>CS 646 Higher Level Computer Vision</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-668-generative-computer-vision-models/\"><span>CS 668 Generative Computer vision Models</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-647-image-processing/\"><span>CS 647 Image Processing</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-704-artificial-intelligence-seminar/\"><span>CS 704 Artificial Intelligence Seminar</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-704-social-simulation-seminar/\"><span>CS 704 Social Simulation Seminar</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-704-traffic-forecasting-with-neural-networks-seminar/\"><span>CS 704 Traffic Forecasting with Neural Networks Seminar</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/sm445-cs-707-seminar-machine-learning-at-scale-hws-20/\"><span>SM445/<wbr />CS 707: Seminar \u201cMachine Learning at Scale\u201d (HWS 20</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-709-text-analytics-seminar/\"><span>CS 709 Text Analytics Seminar</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-710-seminar-on-knowledge-graph-construction/\"><span>CS 710 Seminar on Knowledge Graphs and Large Language Models</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-715-seminar-on-solving-complex-tasks-using-large-language-models/\"><span>CS 715: Seminar on Solving Complex Tasks using Large Language Models</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-717-seminar-on-ai-safety-robustness/\"><span>CS 717: Seminar on AI Safety & Robustness</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-718-ai-and-data-science-in-fiction-and-society/\"><span>CS 718 AI and Data Science in Fiction and Society</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/cs-719-process-analysis-seminar/\"><span>CS 719 Process Analysis Seminar</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/colloquium/\"><span>Colloquium</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/team-projects/\"><span>Team Projects</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/data-analytics-team-project-your-project-your-team/\"><span>Data Analytics Team Project \u2013 Your Project, Your Team</span></a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/\"><span>Course Archive</span></a><ul class=\"level5 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/fss-2025/\"><span>FSS 2025</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/hws-2024/\"><span>HWS 2024</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/fss-2024/\"><span>FSS 2024</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/hws-2023/\"><span>HWS 2023</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/fss-2022-1/\"><span>FSS 2023</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/hws-2022/\"><span>HWS 2022</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/fss-2022/\"><span>FSS 2022</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/hws-2021/\"><span>HWS 2021</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/sm-445-cs-707-data-and-web-science-seminar/\"><span>SM 445/<wbr />CS 707 Data and Web Science Seminar</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/fss-2021/\"><span>FSS 2021</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/hws-2020/\"><span>HWS 2020</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/fss-2020/\"><span>FSS 2020</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/hws-2019/\"><span>HWS 2019</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/hws-2018/\"><span>HWS 2018</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/fss-2018/\"><span>FSS 2018</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-master-candidates/course-archive/fss-2019/\"><span>FSS 2019</span></a></li></ul></li></ul></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/\"><span>Courses for Bachelor Candidates</span></a><ul class=\"level4 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/cs-303-praktische-informatik-ii/\"><span>CS 303 Praktische Informatik II</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/sm-445-data-and-web-science-seminar/\"><span>SM 445 Data and Web Science Seminar</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/sm-445-data-and-web-science-seminar-1/\"><span>SM 451 Seminar Ethical AI</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/wirtschaftsinformatik-ii/\"><span>Wirtschaftsinformatik II</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/einfuehrung-in-data-science/\"><span>Einf\u00fchrung in Data Science</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/kuenstliche-intelligenz/\"><span>K\u00fcnstliche Intelligenz</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/wirtschaftsinformatik-fuer-wipaeds/\"><span>Wirtschaftsinformatik f\u00fcr WiP\u00e4ds</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/wirtschaftsinformatik-fuer-bakuwis/\"><span>Wirtschaftsinformatik f\u00fcr BaKuWis</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/ki-seminar/\"><span>KI Seminar</span></a></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/\"><span>Course Archive</span></a><ul class=\"level5 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/fss-2024/\"><span>FSS 2024</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/hws-2023/\"><span>HWS 2023</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/fss-2023/\"><span>FSS 2023</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/hws-2022/\"><span>HWS 2022</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/fss-2022/\"><span>FSS 2022</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/hws-2021/\"><span>HWS 2021</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/fss-2021/\"><span>FSS 2021</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/hws-2020/\"><span>HWS 2020</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/fss-2020/\"><span>FSS 2020</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/hws-2019/\"><span>HWS 2019</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/fss-2019/\"><span>FSS 2019</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/hws-2018/\"><span>HWS 2018</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/fss-2018/\"><span>FSS 2018</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-bachelor-candidates/course-archive/hws-2017/\"><span>HWS 2017</span></a></li></ul></li></ul></li><li class=\"has-subpages\" data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-phd-candidates/\"><span>Courses for PhD Candidates</span></a><ul class=\"level4 vertical menu nested\"><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-phd-candidates/colloquium-fss2023/\"><span>Colloquium FSS2023</span></a></li><li data-doktype=\"1\" data-shortcut=\"0\" data-url=\"\"><a href=\"/dws/teaching/course-details/courses-for-phd-candidates/computational-text-analysis/\"><span>Computational Text Analysis</span></a></li></ul></li></ul></li></ul></li></ul></nav>\n\n\n\n\t\t\t\t\n\t\t\t\t<div class=\"row align-right align-middle hide-for-large\">\n\t\t\t\t\t<button class=\"modal-button hide-for-large\" data-open=\"header-modal\">\n\t\t\t\t\t\t<span class=\"hide\">Menu</span>\n\t\t\t\t\t\t<svg class=\"svg-icon-burger-dims\"><use xlink:href=\"/typo3conf/ext/uma_site/Resources/Public/Icons/sprite.svg#icon-burger\"></use></svg>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"reveal full\" id=\"header-modal\" data-reveal>\n\t\t\t\t\t<button class=\"close-button\" data-close aria-label=\"Close modal\" type=\"button\">\n\t\t\t\t\t\t<span aria-hidden=\"true\">\u00d7</span>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</header>\n\n\t\t\t\n\t\n\t<main class=\"uma-global-content align-center no-header-image\">\n\t\t<div class=\"ce content-type-layout-60 content-type-contentelements_header ce-header\" id=\"c102938\"><div class=\"header-wrapper\"><div class=\"header-slide\"><a href=\"https://www.wim.uni-mannheim.de/\" class=\"\" tabindex=\"-1\"><div class=\"header-image-wrapper header-image-style-1 header-image-layout-1\"><div class=\"image-wrapper\"><img class=\"header-image\" src=\"/media/_processed_/e/e/csm_DSC_4401_208cf2bfbf.jpg\" title=\"\" alt=\"B6 Universit&auml;tsgeb&auml;ude\" srcset=\"\n\t\t\t\t\t\t\t\t\t\t\t\t/media/_processed_/e/e/csm_DSC_4401_6ff68255f6.jpg 1280w,\n\t\t\t\t\t\t\t\t\t\t\t\t/media/_processed_/e/e/csm_DSC_4401_208cf2bfbf.jpg 1920w,\n\t\t\t\t\t\t\t\t\t\t\t\t/media/_processed_/e/e/csm_DSC_4401_5e6e57535a.jpg 2560w\" sizes=\"100vw\"><div class=\"image-copyright image-copyright-top\">Credit: Anna Logue</div></div></div></a></div></div></div>\n\n\n\t\t\n\t\t\t\n\n\n\n\n<nav class=\"ce max-width-1440 uma-breadcrumb show-for-medium\" aria-label=\"Breadcrumb\">\n\t\n\t\t<ol class=\"breadcrumbs\"><li class=\"active \"><a href=\"/en/\" title=\"Universit\u00e4t Mannheim\" class=\"active\">University of Mannheim</a>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t</li><li class=\"active current \"><a href=\"/dws/\" title=\"Data and Web Science Group\" class=\"active current \" aria-current=\"page\">Data and Web Science Group</a>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\n\t\t\t\t</li></ol>\n\t\n</nav>\n\n\t\t\n\t\t<div id=\"page-content\" class=\"page-content\" typo3search_begin><div class=\"ce max-width-1440 margin-half content-type-layout- content-type-header\" id=\"c101054\"><header><h1 class=\"\">\n\t\t\t\tThe Data and Web Science Group\n\t\t\t</h1></header></div>\n\n<div class=\"ce max-width-1440 no-margin content-type-layout-0 content-type-textmedia\" id=\"c97968\"><div class=\"ce-textpic ce-left ce-intext has-no-image\"><div class=\"ce-bodytext\"><p>Welcome to the webpages of the <strong>Data and Web Science</strong><strong> Group</strong>.\u00a0We conduct research and offer teaching in the areas data analytics, artificial intelligence, natural language processing, and data integration.\u00a0The group consists of 7 professors and around 35 researchers and supporting staff members.</p></div></div></div>\n\n<div class=\"ce max-width-1440 margin-half content-type-layout- content-type-news_pi1\" id=\"c98831\"><div class=\"news\"><header><h2 class=\" \">\n\t\t\t\tNews\n\t\t\t</h2></header><!--TYPO3SEARCH_end--><div class=\"news-list-view news-box news-list-view-template-2\" id=\"news-container-98831\"><div class=\"row-elements\"><div class=\"article articletype-0\" data-categories=\"258,250,252,251\" itemscope=\"itemscope\" itemtype=\"http://schema.org/Article\"><div class=\"article-image\"><a href=\"/dws/news/nomination-for-the-best-paper-award-at-caise-2025/\"><div class=\"news-image\"><img alt=\"Nominierung f&uuml;r &quot;The Best Paper Award at the International Conference on Advanced Information Systems Engineering (CAiSE) 2025&quot; in Wien\" loading=\"lazy\" src=\"/media/_processed_/7/6/csm_CAiSE2025_award_38c165f3d4.jpg\" width=\"420\" height=\"280\"><div class=\"image-copyright\">\n\t\t\t\t\t\t\t\t\t\tCredit: Alexander Kraus\n\t\t\t\t\t\t\t\t\t</div></div></a></div><div class=\"article-text\"><a href=\"/dws/news/nomination-for-the-best-paper-award-at-caise-2025/\"><div class=\"news-text-wrap\"><div class=\"title\"><span class=\"news-title\">Nomination for the Best Paper Award at CAiSE 2025</span></div><div class=\"teaser-text\"><div itemprop=\"description\">Alexander Kraus, Keyvan Amiri Elyasi, and Han van der Aa have been nominated for the Best Paper Award at the International Conference on Advanced Information Systems Engineering (CAiSE) 2025 in Vienna, Austria, for their paper entitled \u201cOn the Use of Steady-State Detection for Process Mining:\u00a0...</div></div></div></a></div></div><div class=\"article articletype-0\" data-categories=\"258,250,252,251\" itemscope=\"itemscope\" itemtype=\"http://schema.org/Article\"><div class=\"article-image\"><a href=\"/dws/news/three-papers-accepted-at-bpm-2025/\"><div class=\"news-image\"><img loading=\"lazy\" src=\"/media/_processed_/8/9/csm_BPM25_73c2b197e2.png\" width=\"420\" height=\"280\" alt=\"\"></div></a></div><div class=\"article-text\"><a href=\"/dws/news/three-papers-accepted-at-bpm-2025/\"><div class=\"news-text-wrap\"><div class=\"title\"><span class=\"news-title\">Three Papers accepted at BPM 2025</span></div><div class=\"teaser-text\"><div itemprop=\"description\">We are happy to announce that the following papers from the AI group have been accepted at this years conference on Business Process Management (BPM 2025):\u00a0\n Main Conference:\u00a0\n A Divide-and-Conquer Approach for Modeling Arrival Times in Business Process Simulation (Lukas Kirchdorfer, Konrad \u00d6zdemir,\u00a0...</div></div></div></a></div></div><div class=\"article articletype-0\" data-categories=\"254,250\" itemscope=\"itemscope\" itemtype=\"http://schema.org/Article\"><div class=\"article-image\"><a href=\"/dws/news/webmall-multi-shop-benchmark-for-evaluating-llm-agents-released/\"><div class=\"news-image\"><img loading=\"lazy\" src=\"/media/_processed_/3/0/csm_WebMallScreenshot_82c6f70211.jpg\" width=\"420\" height=\"280\" alt=\"\"></div></a></div><div class=\"article-text\"><a href=\"/dws/news/webmall-multi-shop-benchmark-for-evaluating-llm-agents-released/\"><div class=\"news-text-wrap\"><div class=\"title\"><span class=\"news-title\">WebMall Benchmark for Evaluating LLM-Agents Released</span></div><div class=\"teaser-text\"><div itemprop=\"description\">We are happy to announce the initial release of the WebMall benchmark for evaluating the capability of LLM-agents to find and compare product offers across multiple e-shops.</div></div></div></a></div></div><div class=\"article articletype-0\" data-categories=\"593,250\" itemscope=\"itemscope\" itemtype=\"http://schema.org/Article\"><div class=\"article-image\"><a href=\"/dws/news/three-new-papers-accepted-at-cvpr-syn4cv-workshop/\"><div class=\"news-image\"><img loading=\"lazy\" src=\"/media/_processed_/4/3/csm_cvpr2025_nashville_tn_2e0cd5a9b3.jpeg\" width=\"420\" height=\"280\" alt=\"\"></div></a></div><div class=\"article-text\"><a href=\"/dws/news/three-new-papers-accepted-at-cvpr-syn4cv-workshop/\"><div class=\"news-text-wrap\"><div class=\"title\"><span class=\"news-title\">Upcoming Presentations &commat; CVPR </span></div><div class=\"teaser-text\"><div itemprop=\"description\">We are happy to announce:\u00a0\n Three papers from our group were accepted at the CVPR Synthetic Data for Computer Vision workshop @ CVPR 2025.\n DispBench: Benchmarking Disparity Estimation to Synthetic Corruptions, S. Agnihotri, A. Ansari, A. Dackermann, F. R\u00f6sch, M. Keuper, Synthetic Data for Computer\u00a0...</div></div></div></a></div></div></div></div><br><div class=\"button-wrapper\"><a class=\"button\" href=\"/dws/news-archiv/\">all news</a></div><!--TYPO3SEARCH_begin--></div></div>\n\n<div class=\"ce max-width-1440 margin-half content-type-layout-0 content-type-textmedia\" id=\"c97969\"><header><h2 class=\" \">\n\t\t\t\tResearch\n\t\t\t</h2></header><div class=\"ce-textpic ce-left ce-intext has-no-image\"><div class=\"ce-bodytext\"><p class=\"bodytext\">The Data and Web Science Group conducts research on methods for managing, integrating and mining large amounts of heterogeneous information within enterprise and open Web contexts. \u00a0We are involved in several\u00a0<a href=\"/dws/research/projects/\" target=\"_self\">national and international projects</a>\u00a0and cooperate with partners from\u00a0industry, research institutes and other universities.\u00a0Details on the results of our research are found in the\u00a0conference and journal papers available on the publications page. The open-license datasets, open-source software packages, and benchmarks that are offered by our group are found on the <a href=\"/dws/research/resources/\" target=\"_self\">resources page</a>.\u00a0</p><p class=\"bodytext\">The Data and Web Science Group consists of the following focus groups:</p><ul><li><a href=\"/dws/research/focus-groups/web-based-systems-prof-bizer/\" target=\"_self\">Web-based Systems</a>\u00a0(Prof. Bizer)</li><li><a href=\"/dws/research/focus-groups/data-analytics-prof-gemulla/\" target=\"_self\">Data Analytics</a> (Prof. Gemulla)</li><li><a href=\"/dws/people/professors/prof-dr-philipp-kellmeyer/\">Responsible AI and Digital Health</a> (Prof. Kellmeyer)</li><li><a href=\"/dws/people/professors/prof-dr-ing-margret-keuper/\">Machine Learning</a> (Prof. Margret Keuper)</li><li><a href=\"/dws/research/focus-groups/web-data-mining-prof-paulheim/\" target=\"_self\">Web Data Mining</a>\u00a0(Prof. Paulheim)</li><li><a href=\"/dws/research/focus-groups/natural-language-processing-and-information-retrieval-prof-ponzetto/\" target=\"_self\">Natural Language Processing</a>\u00a0(Prof. Ponzetto)</li><li><a href=\"/dws/research/focus-groups/artificial-intelligence-prof-stuckenschmidt/\" target=\"_self\">Artificial Intelligence</a>\u00a0(Prof. Stuckenschmidt)</li></ul><p>Updates from individual group members are found in the <a href=\"https://twitter.com/dwsunima\" target=\"_blank\" rel=\"noreferrer\">DWS twitter feed</a>.</p></div></div></div>\n\n<div class=\"ce max-width-1440 margin-half content-type-layout-0 content-type-textmedia\" id=\"c97970\"><header><h2 class=\" \">\n\t\t\t\tTeaching\n\t\t\t</h2></header><div class=\"ce-textpic ce-left ce-intext has-no-image\"><div class=\"ce-bodytext\"><p>We offer <a href=\"/dws/teaching/course-details/\" target=\"_self\">regular courses</a> for bachelor and master students related to the topics data mining, data integration, information retrieval,\u00a0natural language processing,\u00a0knowledge engineering, and knowledge managment. It is also possible to write a bachelor or master thesis related to the research topics of our group. Excellent alumni can also graduate at our group to achieve a PhD. Further, we are searching for motivated students to work as research assistant within our group.</p></div></div></div>\n\n<div class=\"ce max-width-1440 content-type-layout-0 content-type-textmedia\" id=\"c97971\"><header><h2 class=\" \">\n\t\t\t\tProjects\n\t\t\t</h2></header><div class=\"ce-textpic ce-left ce-intext has-no-image\"><div class=\"ce-bodytext\"><p>Beside fundamental research activities, we also focus on applied research and technology transfer. In this area we closely cooperate with partners from industry. Amongst other activities, we are involved in the\u00a0<a href=\"https://www.uni-mannheim.de/datascience/\" target=\"_blank\">Mannheim Center for Data Science</a> (MCDS) and the\u00a0<a href=\"https://www.uni-mannheim.de/ines/\" target=\"_blank\">Institute for Enterprise Systems</a>\u00a0(InES).</p></div></div></div>\n\n<!-- TYPO3SEARCH_end -->\n\t\t</div>\n\t</main>\n\n\t\t</div>\n\t\t\n\n\n\n\n\n<footer id=\"page-footer\" class=\"uma-footer uma-footer-new has-metafooter\">\n\t\n\t\t<div class=\"metafooter-wrapper max-width-1440\">\n\t\t\t<div class=\"metafooter\">\n\t\t\t\t<div class=\"metafooter-inner row\">\n\t\t\t\t\t<div class=\"uma-faculty-address-card row\"><!-- TYPO3SEARCH_end --><div class=\"column small-16 medium-8 large-4 uma-address-picture small-order-2 large-order-1\"><div class=\"uma-address-image\"><img class=\"placeholder-image\" alt=\"Data and Web Science Group\" loading=\"lazy\" src=\"/_assets/57a23904394be66b23e1207477f1abce/Images/uma-signet-white-de.jpg\" width=\"360\" height=\"360\"></div></div><div class=\"column small-16 medium-8 large-4 uma-address-map small-order-3 large-order-2\"><div id=\"uma-map2225\" class=\"uma-map\" data-uid=\"2225\"><div class=\"uma-map-marker\" data-latitude=\"49.487669\" data-longitude=\"8.457971\" data-address=\"B 6, 26, 68159 Mannheim\"><b>Data and Web Science Group</b><br><a class=\"uma-map-directions\" href=\"https://www.google.com/maps/dir/?api=1&destination=B+6,+26,+Mannheim\" target=\"_blank\">Directions on Google Maps</a></div></div></div><!-- TYPO3SEARCH_begin --><div class=\"column small-16 large-8 standard-text small-order-1 large-order-3\"><div class=\"uma-address-name\"><h4>Data and Web Science Group</h4></div><div class=\"uma-address-street-address\">\n    University of Mannheim<br>\n    \n        Data and Web Science Group<br>\r\nSchool of Business Informatics and Mathematics<br>\n    \n    \n        B 6, 26<br>\n    \n    \n    \n        68159 Mannheim\n    \n    \n    \n</div><div class=\"uma-address-contact\"></div></div><div class=\"column small-16 large-8 small-only-padding-bottom footer-nav-flat uma-address-footer-nav small-order-4\"></div><div class=\"column small-16 large-8 uma-address-social-icons small-order-5\"></div></div>\n\n\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\n\t<div class=\"main-footer max-width-1440\">\n\t\t<div class=\"main-footer-inner\">\n\t\t\t\n\t\t\t<div class=\"main-footer-legal-info row align-middle align-justify medium-text-center\">\n\t\t\t\t<div class=\"column small-16 small-only-padding-bottom large-12 footer-nav footer-nav-flat\"><ul><li><li><a href=\"/en/about-this-site/\" target=\"_blank\">About This Site</a></li><li><a href=\"/en/data-protection-declaration/\" target=\"_blank\">Data Protection Declaration</a></li><li></ul></div>\n\t\t\t\t\n\t\t\t</div>\n\t\t</div>\n\t</div>\n</footer>\n\n\t</div>\n</div>\n<div id=\"scroll-to-top\"><svg><use xlink:href=\"/typo3conf/ext/uma_site/Resources/Public/Icons/sprite.svg#arrow-rounded-up\"></use></svg></div>\n\r\n\r\n\r\n<div class=\"cookie-notice\">\r\n\t<div class=\"cookie-notice-msg\">In order to improve performance and enhance the user experience for the visitors to our website, we use cookies and store anonymous usage data. For more information please read our <a href=\"/datenschutzerklaerung/\" target=\"_blank\">privacy policy</a>.</div>\r\n\t<div class=\"cookie-accept cookie-button button\">Allow</div>\r\n\t<div class=\"cookie-reject cookie-button button\">Reject</div>\r\n</div>\r\n<div class=\"cookie-controls hide\">\r\n\t<div class=\"cookie-status cookie-status-accepted\">\r\n\t\t<p>Tracking cookies are currently allowed.</p>\r\n\t\t<div class=\"cookie-reject cookie-button button\">Do not allow tracking cookies</div>\r\n\t</div>\r\n\t<div class=\"cookie-status cookie-status-rejected\">\r\n\t\t<p>Tracking cookies are currently not allowed.</p>\r\n\t\t<div class=\"cookie-accept cookie-button button\">Allow tracking cookies</div>\r\n\t</div>\r\n</div>\r\n\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\n\n<script src=\"/_assets/57a23904394be66b23e1207477f1abce/Vendor/maplibre-gl/js/maplibre-gl.1747232557.js\"></script>\n<script src=\"/_assets/57a23904394be66b23e1207477f1abce/JavaScripts/app.1750941679.js\"></script>\n\n<script src=\"/_assets/f038457a108ded7ca0b077b63bfae195/JavaScript/Validation.min.1749583070.js\"></script>\n<script src=\"/_assets/f038457a108ded7ca0b077b63bfae195/JavaScript/Femanager.min.1749583070.js\"></script>\n\n\n\n\n</body>\n</html>"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:11:32.457437",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01Ci5r12rcAwB3p5GPhtVSwu",
+        "error": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100 52776    0 52776    0     0   272k      0 --:--:-- --:--:-- --:--:--  272k"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:07.782068",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 10771,
+        "output_tokens": 87,
+        "cost_usd": 0.033618,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:07.788648",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "text",
+            "text": "Let me save the curl output to a file and examine it:"
+          },
+          {
+            "type": "tool_use",
+            "id": "toolu_01Ni7kz7bd5ACEWVfJnPGppE",
+            "name": "bash",
+            "input": {
+              "command": "curl -L https://www.uni-mannheim.de/dws/ > dws.html"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:08.202931",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01Ni7kz7bd5ACEWVfJnPGppE",
+        "error": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100 52776    0 52776    0     0   154k      0 --:--:-- --:--:-- --:--:--  155k"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:16.674927",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 10990,
+        "output_tokens": 79,
+        "cost_usd": 0.034155,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:16.681677",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01P5gb81dAfPQbZCM2fJ9Edw",
+            "name": "str_replace_editor",
+            "input": {
+              "command": "view",
+              "path": "/tmp/dws.html"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:16.690651",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01P5gb81dAfPQbZCM2fJ9Edw",
+        "error": "The path /tmp/dws.html does not exist. Please provide a valid path."
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:24.246506",
+      "type": "token_usage",
+      "data": {
+        "input_tokens": 11106,
+        "output_tokens": 76,
+        "cost_usd": 0.034458,
+        "model": "claude-3-5-sonnet-20241022"
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:24.251905",
+      "type": "api_response",
+      "data": {
+        "content": [
+          {
+            "type": "tool_use",
+            "id": "toolu_01J6Rt2rmmnozGn3KNqv1g7J",
+            "name": "str_replace_editor",
+            "input": {
+              "command": "view",
+              "path": "dws.html"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "timestamp": "2025-07-01T04:12:24.259381",
+      "type": "tool_result",
+      "data": {
+        "tool_use_id": "toolu_01J6Rt2rmmnozGn3KNqv1g7J",
+        "error": "The path dws.html is not an absolute path, it should start with `/`. Maybe you meant dws.html?"
+      }
+    }
+  ]
+}

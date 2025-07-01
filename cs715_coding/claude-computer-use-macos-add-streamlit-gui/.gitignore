@@ -8,7 +8,7 @@ Icon?
 # Common Python artifacts
 __pycache__/
 *.pyc
-*.pyo
+*.pyox
 *.pyd
 .Python
 env/
@@ -34,12 +34,6 @@ dist/
 .env.local
 .env.production
 
-# Evaluation system generated files
-evaluations/*.json
-evaluations/*.csv
-logs/*.json
-screenshots/*.png
-screenshots/*.jpg
 
 # Temporary and cache files
 *.tmp
