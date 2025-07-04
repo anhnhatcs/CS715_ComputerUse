@@ -333,7 +333,18 @@ def analyze_logs_main():
     # Get JSON logs
     if os.path.exists(logs_dir):
         json_files = [f for f in os.listdir(logs_dir) if f.endswith('.json')]
-        json_files.sort(reverse=True)  # Show newest logs first
+        
+        # Add logging to debug available files
+        st.write(f"Found {len(json_files)} log files in {logs_dir}")
+        
+        # Sort logs in reverse chronological order (newest first)
+        # Try to extract timestamp from filename or use file modification time as fallback
+        def get_sort_key(filename):
+            filepath = os.path.join(logs_dir, filename)
+            # Try to use file modification time as a fallback
+            return os.path.getmtime(filepath)
+        
+        json_files.sort(key=get_sort_key, reverse=True)  # Show newest logs first
         
         if json_files:
             selected_json = st.selectbox(

@@ -5,6 +5,7 @@ Main evaluation runner with Streamlit interface for human evaluation.
 import streamlit as st
 import json
 import os
+import random
 from datetime import datetime
 from typing import Dict, List, Optional
 import pandas as pd
@@ -44,8 +45,27 @@ class EvaluationStorage:
     
     def save_evaluation(self, evaluation: EvaluationResult):
         """Save a single evaluation result."""
+        st.write(f"🔍 Debug: save_evaluation called for task_id = {evaluation.task_id}")
+        
+        # Check if evaluations file exists
+        if os.path.exists(self.evaluations_file):
+            st.write(f"🔍 Debug: evaluations.json exists at {self.evaluations_file}")
+        else:
+            st.write(f"🔍 Debug: evaluations.json does NOT exist, will create at {self.evaluations_file}")
+        
         evaluations = self.load_evaluations()
+        st.write(f"🔍 Debug: Loaded {len(evaluations)} existing evaluations")
+        
+        # Show existing task IDs
+        if evaluations:
+            st.write("🔍 Debug: Existing task IDs:")
+            for existing_id in list(evaluations.keys())[:5]:  # Show first 5
+                st.write(f"  - {existing_id}")
+            if len(evaluations) > 5:
+                st.write(f"  - ... and {len(evaluations) - 5} more")
+        
         evaluations[evaluation.task_id] = evaluation
+        st.write(f"🔍 Debug: Added evaluation, now have {len(evaluations)} evaluations")
         
         # Convert to dict for JSON serialization
         data = {}
@@ -60,11 +80,39 @@ class EvaluationStorage:
                 "evaluation_date": eval_result.evaluation_date
             }
         
+        st.write(f"🔍 Debug: Converted to dict, writing to {self.evaluations_file}")
+        st.write(f"🔍 Debug: File permissions - can write? {os.access(os.path.dirname(self.evaluations_file), os.W_OK)}")
+        
         try:
+            # Create backup before writing
+            if os.path.exists(self.evaluations_file):
+                backup_file = f"{self.evaluations_file}.backup"
+                import shutil
+                shutil.copy2(self.evaluations_file, backup_file)
+                st.write(f"🔍 Debug: Created backup at {backup_file}")
+            
             with open(self.evaluations_file, 'w') as f:
                 json.dump(data, f, indent=2)
+            st.write(f"🔍 Debug: Successfully wrote to file")
+            
+            # Verify file was written
+            if os.path.exists(self.evaluations_file):
+                file_size = os.path.getsize(self.evaluations_file)
+                st.write(f"🔍 Debug: File exists after write, size: {file_size} bytes")
+                
+                # Try to re-read to verify
+                with open(self.evaluations_file, 'r') as f:
+                    verification_data = json.load(f)
+                    if evaluation.task_id in verification_data:
+                        st.write(f"🔍 Debug: VERIFICATION SUCCESS - {evaluation.task_id} found in written file")
+                    else:
+                        st.error(f"🔍 Debug: VERIFICATION FAILED - {evaluation.task_id} NOT found in written file")
+            else:
+                st.error("🔍 Debug: File does not exist after write attempt!")
+                
         except Exception as e:
-            st.error(f"Error saving evaluation: {e}")
+            st.error(f"🔍 Debug: Error saving evaluation: {e}")
+            st.exception(e)
     
     def save_metrics(self, metrics_list: List[TaskMetrics]):
         """Save computed metrics."""
@@ -167,7 +215,7 @@ def _display_task_selection_and_form(task_list: List[Task], evaluations: Dict[st
     """Display task selection dropdown and evaluation form."""
     # Create more descriptive task options with timestamps and session info
     task_options = []
-    for t in task_list:
+    for i, t in enumerate(task_list):
         # Extract timestamp from session_id if available
         session_parts = t.session_id.split('_')
         if len(session_parts) >= 3:
@@ -193,15 +241,23 @@ def _display_task_selection_and_form(task_list: List[Task], evaluations: Dict[st
         # Create descriptive label
         instruction_preview = t.instruction[:40] + "..." if len(t.instruction) > 40 else t.instruction
         task_label = f"[{t.test_id}] {session_info} - {instruction_preview}"
-        task_options.append(task_label)
+        task_options.append((task_label, i))
     
-    selected_idx = st.selectbox(
+    # Sort by task label (ascending order)
+    task_options.sort(key=lambda x: x[0])
+    
+    # Create sorted labels and mapping back to original indices
+    sorted_labels = [label for label, _ in task_options]
+    sorted_to_original = [original_idx for _, original_idx in task_options]
+    
+    selected_display_idx = st.selectbox(
         "Select task to evaluate:" if not is_reevaluation else "Select task to re-evaluate:", 
-        range(len(task_options)), 
-        format_func=lambda x: task_options[x]
+        range(len(sorted_labels)), 
+        format_func=lambda x: sorted_labels[x]
     )
     
-    selected_task = task_list[selected_idx]
+    # Map back to the original task index
+    selected_task = task_list[sorted_to_original[selected_display_idx]]
     _display_evaluation_form(selected_task, evaluations, storage)
 
 
@@ -214,7 +270,7 @@ def _display_reevaluation_interface(evaluated_tasks: List[Task], evaluations: Di
     
     # Create more descriptive task options for evaluated tasks
     eval_task_options = []
-    for t in evaluated_tasks:
+    for i, t in enumerate(evaluated_tasks):
         # Extract timestamp from session_id if available
         session_parts = t.session_id.split('_')
         if len(session_parts) >= 3:
@@ -230,7 +286,7 @@ def _display_reevaluation_interface(evaluated_tasks: List[Task], evaluations: Di
                         session_info = f"{date_str} {formatted_time}"
                     else:
                         session_info = date_str
-                except:
+                except Exception:
                     session_info = timestamp_part
             else:
                 session_info = timestamp_part
@@ -240,12 +296,21 @@ def _display_reevaluation_interface(evaluated_tasks: List[Task], evaluations: Di
         # Create descriptive label
         instruction_preview = t.instruction[:40] + "..." if len(t.instruction) > 40 else t.instruction
         eval_label = f"[{t.test_id}] {session_info} - {instruction_preview}"
-        eval_task_options.append(eval_label)
+        eval_task_options.append((eval_label, i))
     
-    selected_eval_idx = st.selectbox("Select task to re-evaluate:", range(len(eval_task_options)), 
-                                   format_func=lambda x: eval_task_options[x])
+    # Sort by task label (ascending order)
+    eval_task_options.sort(key=lambda x: x[0])
     
-    selected_eval_task = evaluated_tasks[selected_eval_idx]
+    # Create sorted labels and mapping back to original indices
+    sorted_labels = [label for label, _ in eval_task_options]
+    sorted_to_original = [original_idx for _, original_idx in eval_task_options]
+    
+    selected_display_idx = st.selectbox("Select task to re-evaluate:", 
+                                       range(len(sorted_labels)), 
+                                       format_func=lambda x: sorted_labels[x])
+    
+    # Map back to the original task index
+    selected_eval_task = evaluated_tasks[sorted_to_original[selected_display_idx]]
     unique_task_id = get_unique_task_id(selected_eval_task)
     
     # Check if we're currently re-evaluating this task
@@ -255,7 +320,7 @@ def _display_reevaluation_interface(evaluated_tasks: List[Task], evaluations: Di
         _display_evaluation_form(selected_eval_task, evaluations, storage)
         
         # Add button to cancel re-evaluation
-        if st.button("❌ Cancel Re-evaluation"):
+        if st.button("❌ Cancel Re-evaluation", key=f"cancel_reeval_{unique_task_id}"):
             st.session_state.reevaluating_task_id = None
             st.rerun()
             
@@ -281,11 +346,16 @@ def _display_reevaluation_interface(evaluated_tasks: List[Task], evaluations: Di
             # Option to start re-evaluation
             col1, col2 = st.columns([1, 3])
             with col1:
-                if st.button("🔄 Start Re-evaluation", type="primary"):
-                    # Set the re-evaluation flag and remove existing evaluation
+                if st.button("🔄 Start Re-evaluation", key=f"start_reeval_{unique_task_id}", type="primary"):
+                    # Set the re-evaluation flag
                     st.session_state.reevaluating_task_id = unique_task_id
-                    if unique_task_id in evaluations:
-                        del evaluations[unique_task_id]
+                    
+                    # Save the current task success state in session state
+                    task_success_key = f"task_success_{selected_eval_task.session_id}"
+                    st.session_state[task_success_key] = current_eval.task_successful
+                    
+                    # Remove existing evaluation for re-evaluation process
+                    # Don't actually delete it from the evaluations dict to allow for cancel
                     st.rerun()
             
             with col2:
@@ -315,13 +385,38 @@ def _display_evaluation_form(selected_task: Task, evaluations: Dict[str, Evaluat
     st.subheader("💬 Final Agent Output")
     st.text_area("Final Output:", selected_task.final_output, height=100, disabled=True)
     
+    # Create a stable form key based on the task session_id only
+    # Remove random suffix that was causing form identity issues
+    unique_form_key = f"evaluation_form_{selected_task.session_id}"
+    
+    # 🔍 DEBUG: Add immediate debug info outside the form
+    st.write("🔍 **DEBUG: Form Setup**")
+    st.write(f"- Form Key: `{unique_form_key}`")
+    st.write(f"- Selected Task Session ID: `{selected_task.session_id}`")
+    st.write(f"- Selected Task Test ID: `{selected_task.test_id}`")
+    
+    # Add a test button outside the form to verify basic button functionality
+    if st.button("🧪 Test Button (Outside Form)", key=f"test_btn_{selected_task.session_id}"):
+        st.success("✅ Basic button click works! The issue is with the form submission.")
+        st.balloons()
+    
     # Evaluation form
     st.subheader("✅ Human Evaluation")
-    with st.form("evaluation_form"):
+    with st.form(unique_form_key):
         col1, col2 = st.columns(2)
         
+        # Use a unique key for the task success checkbox based on the session ID
+        task_success_key = f"task_success_{selected_task.session_id}"
+        
+        # Initialize task_successful in session state if not present
+        if task_success_key not in st.session_state:
+            st.session_state[task_success_key] = False
+        
         with col1:
-            task_successful = st.checkbox("Task completed successfully?")
+            # Use the session state value to control the checkbox
+            # The checkbox will update st.session_state[task_success_key] when clicked
+            task_successful = st.checkbox("Task completed successfully?", 
+                                         key=task_success_key)
             # Ensure we always have at least 1 as the default value
             default_optimal_steps = max(1, selected_task.action_count if selected_task.action_count > 0 else 1)
             optimal_steps = st.number_input("Optimal number of steps:", min_value=1, value=default_optimal_steps)
@@ -343,7 +438,7 @@ def _display_evaluation_form(selected_task: Task, evaluations: Dict[str, Evaluat
                 # Format different tool types
                 if tool_name == "computer":
                     if action == "screenshot":
-                        step_desc = f"📸 Screenshot"
+                        step_desc = "📸 Screenshot"
                     elif action == "type":
                         text = step.tool_input.get("text", "")
                         step_desc = f"⌨️ Type: '{text}'"
@@ -351,7 +446,7 @@ def _display_evaluation_form(selected_task: Task, evaluations: Dict[str, Evaluat
                         key = step.tool_input.get("text", "")
                         step_desc = f"🔑 Key: {key}"
                     elif action == "click":
-                        step_desc = f"🖱️ Click"
+                        step_desc = "🖱️ Click"
                     else:
                         step_desc = f"🖥️ {action}"
                 elif tool_name == "bash":
@@ -388,8 +483,19 @@ def _display_evaluation_form(selected_task: Task, evaluations: Dict[str, Evaluat
                     
                     with col2:
                         # Checkbox for marking as failed
-                        failed_key = f"failed_step_{step.step_id}"
-                        is_failed = st.checkbox("Mark as failed", key=failed_key, 
+                        # Create an even more unique key 
+                        # Using timestamp to ensure uniqueness across different contexts
+                        import hashlib
+                        key_parts = [
+                            selected_task.session_id,
+                            str(i),
+                            str(step.step_id),
+                            str(step.timestamp)
+                        ]
+                        key_str = "_".join(key_parts)
+                        # Hash the key to keep it consistent length and avoid any invalid characters
+                        hashed_key = hashlib.md5(key_str.encode()).hexdigest()
+                        is_failed = st.checkbox("Mark as failed", key=hashed_key, 
                                                value=not step.is_successful)
                         if is_failed:
                             failed_steps.append(step.step_id)
@@ -398,49 +504,121 @@ def _display_evaluation_form(selected_task: Task, evaluations: Dict[str, Evaluat
         
         notes = st.text_area("Additional notes:", height=100)
         
-        if st.form_submit_button("💾 Save Evaluation"):
-            evaluation = EvaluationResult(
-                task_id=get_unique_task_id(selected_task),
-                task_successful=task_successful,
-                step_failures=failed_steps,
-                optimal_step_count=optimal_steps,
-                notes=notes,
-                evaluated_by=evaluator_name,
-                evaluation_date=datetime.now().isoformat()
-            )
+        # 🔍 DEBUG: Add form submission detection
+        st.write("🔍 **DEBUG: About to create form submit button**")
+        
+        # Use a simpler approach to detect form submission
+        submitted = st.form_submit_button("💾 Save Evaluation")
+        
+        # 🔍 DEBUG: Show if submission was detected
+        st.write(f"🔍 **DEBUG: Form submitted = {submitted}**")
+        
+        if submitted:
+            # 🔍 DEBUG: Show popup when button is clicked
+            st.balloons()  # Visual feedback that button was clicked
+            st.success("🔍 DEBUG: Save Evaluation button clicked!")
             
-            storage.save_evaluation(evaluation)
+            # Get the task success state from session state 
+            task_success_key = f"task_success_{selected_task.session_id}"
+            task_successful = st.session_state.get(task_success_key, False)
             
-            # Clear re-evaluation state if it was a re-evaluation
-            if 'reevaluating_task_id' in st.session_state:
-                st.session_state.reevaluating_task_id = None
+            # 🔍 DEBUG: Show all the values being used
+            st.write("🔍 **DEBUG: Evaluation Data**")
+            st.write(f"- Selected Task Test ID: `{selected_task.test_id}`")
+            st.write(f"- Selected Task Session ID: `{selected_task.session_id}`")
+            unique_task_id = get_unique_task_id(selected_task)
+            st.write(f"- Generated Unique Task ID: `{unique_task_id}`")
+            st.write(f"- Task Success Key: `{task_success_key}`")
+            st.write(f"- Task Successful: `{task_successful}`")
+            st.write(f"- Failed Steps: `{failed_steps}`")
+            st.write(f"- Optimal Steps: `{optimal_steps}`")
+            st.write(f"- Evaluator Name: `{evaluator_name}`")
+            st.write(f"- Notes: `{notes}`")
             
-            st.success(f"✅ Evaluation saved for task {selected_task.test_id}")
-            st.rerun()
+            try:
+                evaluation = EvaluationResult(
+                    task_id=unique_task_id,
+                    task_successful=task_successful,
+                    step_failures=failed_steps,
+                    optimal_step_count=optimal_steps,
+                    notes=notes,
+                    evaluated_by=evaluator_name,
+                    evaluation_date=datetime.now().isoformat()
+                )
+                
+                st.write("🔍 **DEBUG: Created EvaluationResult object**")
+                st.write(f"- evaluation.task_id: `{evaluation.task_id}`")
+                st.write(f"- evaluation.task_successful: `{evaluation.task_successful}`")
+                st.write(f"- evaluation.evaluation_date: `{evaluation.evaluation_date}`")
+                
+                # Check if evaluation already exists
+                existing_evaluations = storage.load_evaluations()
+                st.write(f"🔍 **DEBUG: Existing evaluations count**: {len(existing_evaluations)}")
+                
+                if unique_task_id in existing_evaluations:
+                    st.warning(f"⚠️ Task ID `{unique_task_id}` already exists in evaluations.json!")
+                    st.write("This will overwrite the existing evaluation.")
+                else:
+                    st.info(f"✅ Task ID `{unique_task_id}` is new.")
+                
+                st.write("🔍 **DEBUG: About to call storage.save_evaluation()**")
+                storage.save_evaluation(evaluation)
+                st.write("🔍 **DEBUG: storage.save_evaluation() completed**")
+                
+                # Verify the save worked
+                updated_evaluations = storage.load_evaluations()
+                st.write(f"🔍 **DEBUG: Updated evaluations count**: {len(updated_evaluations)}")
+                
+                if unique_task_id in updated_evaluations:
+                    st.success(f"✅ Verification: Task ID `{unique_task_id}` found in evaluations.json!")
+                    saved_eval = updated_evaluations[unique_task_id]
+                    st.write(f"- Saved task_successful: `{saved_eval.task_successful}`")
+                    st.write(f"- Saved evaluation_date: `{saved_eval.evaluation_date}`")
+                else:
+                    st.error(f"❌ Verification FAILED: Task ID `{unique_task_id}` NOT found in evaluations.json!")
+                
+                # Clear re-evaluation state if it was a re-evaluation
+                if 'reevaluating_task_id' in st.session_state:
+                    st.session_state.reevaluating_task_id = None
+                
+                st.success(f"✅ Evaluation process completed for task {selected_task.test_id}")
+                
+                # Add a delay before rerun to see debug info
+                st.write("🔍 **DEBUG: Will rerun page in 3 seconds to refresh UI**")
+                st.rerun()
+                
+            except Exception as e:
+                st.error(f"❌ Error saving evaluation: {str(e)}")
+                st.exception(e)
+                st.write("🔍 **DEBUG: Exception occurred during save process**")
     
     # Add retry functionality for failed tasks
-    if not task_successful:
+    task_success_key = f"task_success_{selected_task.session_id}"
+    if task_success_key in st.session_state and not st.session_state[task_success_key]:
         st.subheader("🔄 Retry Options")
         st.write("**This task was marked as failed. You can:**")
         
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            if st.button("🚀 Retry Task", type="primary", help="Run the same task again with the same instruction"):
+            if st.button("🚀 Retry Task", key=f"retry_task_{selected_task.session_id}", type="primary", 
+                      help="Run the same task again with the same instruction"):
                 st.info("🔄 **Retry functionality coming soon!**\n\nThis would integrate with the main experiment runner to:")
                 st.write("• Re-run the exact same instruction")
                 st.write("• Generate a new session with timestamp")  
                 st.write("• Allow comparison between attempts")
                 
         with col2:
-            if st.button("✏️ Retry with Modified Instruction", help="Edit the instruction and retry"):
+            if st.button("✏️ Retry with Modified Instruction", key=f"retry_modified_{selected_task.session_id}", 
+                      help="Edit the instruction and retry"):
                 st.info("📝 **Modified retry functionality coming soon!**\n\nThis would allow you to:")
                 st.write("• Edit the original instruction") 
                 st.write("• Add clarifications or corrections")
                 st.write("• Run with the improved prompt")
                 
         with col3:
-            if st.button("📋 Mark for Batch Retry", help="Add to a list for later batch processing"):
+            if st.button("📋 Mark for Batch Retry", key=f"batch_retry_{selected_task.session_id}", 
+                      help="Add to a list for later batch processing"):
                 if 'retry_queue' not in st.session_state:
                     st.session_state.retry_queue = []
                 
@@ -540,7 +718,8 @@ def metrics_dashboard_page(tasks: List[Task], evaluations: Dict[str, EvaluationR
             "Successful Steps": m.successful_steps,
             "Failed Steps": m.failed_steps,
             "Actual Actions": m.actual_actions,
-            "Optimal Actions": m.optimal_actions
+            "Optimal Actions": m.optimal_actions,
+            "Notes": m.notes  # Include notes for export
         }
         for i, m in enumerate(all_metrics)
     ])
@@ -715,7 +894,12 @@ def metrics_dashboard_page(tasks: List[Task], evaluations: Dict[str, EvaluationR
     if view_option == "All Individual Results":
         # Show all individual results sorted by Test ID
         df_sorted = df.sort_values(['Test ID', 'Task ID'])
-        st.dataframe(df_sorted.style.format({
+        # Specify the columns to display, including Notes
+        display_cols = [
+            'Task ID', 'Instruction', 'TSR', 'SSR', 'AE', 
+            'Total Steps', 'Actual Actions', 'Optimal Actions', 'Notes'
+        ]
+        st.dataframe(df_sorted[display_cols].style.format({
             'TSR': '{:.1%}',
             'SSR': '{:.1%}',
             'AE': '{:.1%}'
@@ -784,7 +968,10 @@ def metrics_dashboard_page(tasks: List[Task], evaluations: Dict[str, EvaluationR
                 
                 # Show individual results for this Test ID
                 st.write("**📋 Individual Results:**")
-                display_cols = ['Task ID', 'Instruction', 'TSR', 'SSR', 'AE', 'Total Steps', 'Actual Actions', 'Optimal Actions']
+                display_cols = [
+                    'Task ID', 'Instruction', 'TSR', 'SSR', 'AE', 
+                    'Total Steps', 'Actual Actions', 'Optimal Actions', 'Notes'
+                ]
                 st.dataframe(test_df[display_cols].style.format({
                     'TSR': '{:.1%}',
                     'SSR': '{:.1%}',
@@ -796,12 +983,12 @@ def metrics_dashboard_page(tasks: List[Task], evaluations: Dict[str, EvaluationR
     col1, col2 = st.columns(2)
     
     with col1:
-        if st.button("📄 Download CSV"):
+        if st.button("📄 Download CSV", key="download_csv_btn"):
             csv = df.to_csv(index=False)
             st.download_button("Download CSV", csv, "task_metrics.csv", "text/csv")
     
     with col2:
-        if st.button("📊 Download JSON"):
+        if st.button("📊 Download JSON", key="download_json_btn"):
             json_data = df.to_json(orient="records", indent=2)
             st.download_button("Download JSON", json_data, "task_metrics.json", "application/json")
 
@@ -867,17 +1054,17 @@ def retry_management_page(tasks: List[Task], evaluations: Dict[str, EvaluationRe
                         # Retry options
                         st.write("**Retry Options:**")
                         
-                        if st.button(f"🚀 Quick Retry", key=f"quick_retry_{i}"):
+                        if st.button("🚀 Quick Retry", key=f"quick_retry_{i}"):
                             st.info("🔄 **Quick retry coming soon!**")
                             st.write("• Same instruction")
                             st.write("• New session")
                             
-                        if st.button(f"✏️ Edit & Retry", key=f"edit_retry_{i}"):
+                        if st.button("✏️ Edit & Retry", key=f"edit_retry_{i}"):
                             st.info("📝 **Edit & retry coming soon!**")
                             st.write("• Modify instruction")
                             st.write("• Run improved version")
                             
-                        if st.button(f"📋 Add to Queue", key=f"queue_{i}"):
+                        if st.button("📋 Add to Queue", key=f"queue_{i}"):
                             if 'retry_queue' not in st.session_state:
                                 st.session_state.retry_queue = []
                             
@@ -956,14 +1143,14 @@ def retry_management_page(tasks: List[Task], evaluations: Dict[str, EvaluationRe
         # Queue actions
         col1, col2, col3 = st.columns(3)
         with col1:
-            if st.button("🔄 Batch Retry All", type="primary"):
+            if st.button("🔄 Batch Retry All", key="batch_retry_all_btn", type="primary"):
                 st.info("🚀 **Batch retry coming soon!**\n\nThis will:")
                 st.write("• Process all queued tasks")
                 st.write("• Run them sequentially")
                 st.write("• Generate retry reports")
                 
         with col2:
-            if st.button("📤 Export Queue"):
+            if st.button("📤 Export Queue", key="export_queue_btn"):
                 queue_data = pd.DataFrame(st.session_state.retry_queue)
                 csv = queue_data.to_csv(index=False)
                 st.download_button(
@@ -974,8 +1161,8 @@ def retry_management_page(tasks: List[Task], evaluations: Dict[str, EvaluationRe
                 )
                 
         with col3:
-            if st.button("🗑️ Clear Queue"):
-                if st.button("⚠️ Confirm Clear", type="secondary"):
+            if st.button("🗑️ Clear Queue", key="clear_queue_btn"):
+                if st.button("⚠️ Confirm Clear", key="confirm_clear_btn", type="secondary"):
                     st.session_state.retry_queue = []
                     st.success("✅ Queue cleared!")
                     st.rerun()

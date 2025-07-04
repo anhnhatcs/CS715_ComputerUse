@@ -8,6 +8,15 @@
     "evaluated_by": "Evaluator",
     "evaluation_date": "2025-06-25T18:46:12.342232"
   },
+  "unknown": {
+    "task_id": "unknown",
+    "task_successful": true,
+    "step_failures": [],
+    "optimal_step_count": 4,
+    "notes": "",
+    "evaluated_by": "Evaluator",
+    "evaluation_date": "2025-06-25T18:47:40.669735"
+  },
   "1_1_Basic_App_File_20250625_154705": {
     "task_id": "1_1_Basic_App_File_20250625_154705",
     "task_successful": false,
@@ -38,6 +47,15 @@
     "notes": "",
     "evaluated_by": "Evaluator",
     "evaluation_date": "2025-06-25T19:09:03.521447"
+  },
+  "unknown_20250625_151749": {
+    "task_id": "unknown_20250625_151749",
+    "task_successful": false,
+    "step_failures": [],
+    "optimal_step_count": 6,
+    "notes": "",
+    "evaluated_by": "Evaluator",
+    "evaluation_date": "2025-06-25T19:09:29.165072"
   },
   "1_1_Basic_App_File_20250625_154333": {
     "task_id": "1_1_Basic_App_File_20250625_154333",
@@ -359,27 +377,5 @@
     "notes": "Failed -> It created the file but dont know when stopped",
     "evaluated_by": "Evaluator",
     "evaluation_date": "2025-07-02T17:46:57.418124"
-  },
-  "20_20_Web_Auto_20250701_115938": {
-    "task_id": "20_20_Web_Auto_20250701_115938",
-    "task_successful": true,
-    "step_failures": [
-      "toolu_01EDa6vmk32aTwE31WgcswGH"
-    ],
-    "optimal_step_count": 5,
-    "notes": "Successful\nOptimal tasks: Open Safari \u2192 Search \u2192 Parse results \u2192 Extract info \u2192 Save file",
-    "evaluated_by": "Evaluator",
-    "evaluation_date": "2025-07-02T17:47:27.856774"
-  },
-  "5_Basic_App_File_20250701_040940": {
-    "task_id": "5_Basic_App_File_20250701_040940",
-    "task_successful": false,
-    "step_failures": [
-      "toolu_01EDa6vmk32aTwE31WgcswGH"
-    ],
-    "optimal_step_count": 4,
-    "notes": "Failed",
-    "evaluated_by": "Evaluator",
-    "evaluation_date": "2025-07-02T17:47:27.856774"
   }
 }
