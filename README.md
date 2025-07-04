@@ -1,9 +1,17 @@
-# CS715 Computer Use Evaluation Project
+
+# Seminar CS715 Computer Use Evaluation Project
 
 This project provides tools for analyzing and evaluating Claude Computer Use logs. The project is organized into two main components:
 
 1. **Environment Setup** (parent folder): Contains environment setup, documentation, and project-level configuration based on the [trycua/cua](https://github.com/trycua/cua) framework
 2. **Main Code** (`cs715_coding/`): Contains the custom code for log analysis and evaluation
+
+
+## Demo
+
+
+https://github.com/user-attachments/assets/14658c82-e3db-4686-8b4b-0b7dbec3e316
+
 
 ## Project Structure
 
@@ -89,13 +97,9 @@ See the README.md in the `cs715_coding/` folder for more detailed usage instruct
 - [Telemetry](docs/Telemetry.md)
 - [trycua/cua Documentation](https://github.com/trycua/cua#-usage-guide)
 
-## Contributing
+## Author
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
-
-## License
-
-This project is licensed under the terms of the [LICENSE.md](LICENSE.md) file.
+Anh-Nhat Nguyen: Mannheim Master in Data Science 
 
 ## Acknowledgements
 
