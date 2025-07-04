@@ -7,7 +7,7 @@ This project provides tools for analyzing and evaluating Claude Computer Use log
 2. **Main Code** (`cs715_coding/`): Contains the custom code for log analysis and evaluation
 
 
-## Demo
+## Demo by Anh-Nhat Nguyen
 
 
 https://github.com/user-attachments/assets/14658c82-e3db-4686-8b4b-0b7dbec3e316
