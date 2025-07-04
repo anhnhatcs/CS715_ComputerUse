@@ -1,0 +1,42 @@
+# macOS-specific files/folders
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Common Python artifacts
+__pycache__/
+*.pyc
+*.pyox
+*.pyd
+.Python
+env/
+venv/
+*.egg-info/
+.tox/
+build/
+dist/
+
+# IDE/Editor files
+.idea/
+*.iml
+.vscode/
+
+# Notebook checkpoints
+.ipynb_checkpoints
+
+# macOS Trash folder
+.Trash/
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+
+# Temporary and cache files
+*.tmp
+*.cache
+.pytest_cache/
+.coverage
